@@ -2,6 +2,7 @@ import React from "react";
 import { useNavigation } from "@react-navigation/core";
 import styled from "styled-components";
 
+
 // Components
 import SearchHeader from "../components/SearchHeader";
 
@@ -14,6 +15,7 @@ import WardrobeSpotlight from "../components/WardrobeSpotlight";
 
 import SeeAll from "../components/SeeAll";
 import { error_2 } from '@env';
+
 
 const HomScreen = () => {
 	const { navigate } = useNavigation();

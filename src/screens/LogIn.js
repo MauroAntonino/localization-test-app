@@ -3,16 +3,24 @@ import { View } from "react-native";
 import styled from "styled-components";
 
 import MintButton from "../components/MintButton";
+import * as Localization from 'expo-localization';
+import i18n from 'i18n-js';
+import { en, pt } from '../i18n/supportedLanguages';
+import { language } from '@env';
+
+i18n.fallbacks = true;
+i18n.translations = { en, pt };
+i18n.locale = language;
 
 const LogIn = () => {
 	return (
 		<Container>
 			<InputContainer>
-				<Input placeholder="Nome de usuário ou email" />
+				<Input placeholder={ i18n.t("loginUserName") }/>
 			</InputContainer>
 			<InputContainer style={{ marginBottom: 35 }}>
 				<Input
-					placeholder="Senha"
+					placeholder={ i18n.t("loginPassword") }
 					underlineColorAndroid="transparent"
 					secureTextEntry={true}
 				/>

@@ -5,7 +5,7 @@ import { StatusBar } from "react-native";
 
 import Intro from "./src/screens/Intro";
 
-import SignUp from "./src/screens/SignUp";
+import SignUp from "./src/screens/SignUp.js";
 import LogIn from "./src/screens/LogIn";
 
 import Tutorial from "./src/screens/Tutorial";

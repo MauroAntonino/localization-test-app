@@ -2,6 +2,14 @@ import React, { useState } from "react";
 import { Text } from "react-native";
 import styled from "styled-components";
 import MintButton from "../components/MintButton";
+import * as Localization from 'expo-localization';
+import i18n from 'i18n-js';
+import { en, pt } from '../i18n/supportedLanguages';
+import { language } from '@env';
+
+i18n.fallbacks = true;
+i18n.translations = { en, pt };
+i18n.locale = language;
 
 const IntroImage = "../images/intro.png";
 
@@ -12,20 +20,20 @@ const Intro = ({ navigation }) => {
 			<IntroPic source={require(IntroImage)} />
 
 			<Header>
-				<HeaderText>Venda roupas pré-amadas completamente grátis</HeaderText>
+				<HeaderText>{ i18n.t("introHeader") }</HeaderText>
 			</Header>
 
-			<MintButton destination={"SignUp"} text="Inscreva-se no App" />
+			<MintButton destination={"SignUp"} text={ i18n.t("introSignUpBtn") }/>
 			<MintButton
 				destination={"LogIn"}
-				text="eu já tenho uma conta"
+				text={ i18n.t("introLogInBtn") }
 				emptyStyle={true}
 			/>
 
 			<AboutVinted>
-				<Text style={{ color: "gray" }}>Sobre o App: </Text>
+				<Text style={{ color: "gray" }}>{ i18n.t("introAboutApp") }</Text>
 				<Text onPress={() => navigation.navigate("Home")}>
-				Nossa plataforma
+				{ i18n.t("introAboutAppText") }
 				</Text>
 			</AboutVinted>
 		</Container>

@@ -4,6 +4,7 @@ import styled from "styled-components";
 
 import MintButton from "../components/MintButton";
 import Flyer from "../components/Flyer";
+import { error_3 } from '@env';
 
 const Sell = ({}) => {
 	return (
@@ -35,7 +36,7 @@ const Sell = ({}) => {
 						<Input underlineColorAndroid="transparent" />
 					</InputContainer>
 					<TitleDesc example>
-					por exemplo. usado poucas vezes, fiel ao tamanho
+					{error_3}
 					</TitleDesc>
 				</DescriptionSection>
 				<Separator />

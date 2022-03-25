@@ -2,35 +2,43 @@ import React from "react";
 import { View } from "react-native";
 import styled from "styled-components";
 import MintButton from "../components/MintButton";
+import * as Localization from 'expo-localization';
+import i18n from 'i18n-js';
+import { en, pt } from '../i18n/supportedLanguages';
+import { language } from '@env';
+
+i18n.fallbacks = true;
+i18n.translations = { en, pt };
+i18n.locale = language;
 
 const SignUp = ({ navigation }) => {
 	return (
 		<Container>
 			<InputContainer>
-				<Input placeholder="Nome do usuário" />
+				<Input placeholder={ i18n.t("signupUsername") }/>
 			</InputContainer>
 			<View style={{ marginTop: 25, marginBottom: 25, marginLeft: 5 }}>
 				<RegContainer>
 					<RegText>
-					Ao registar-me, confirmo que aceitei o convite do App{" "}
+					{ i18n.t("signupRegText") }{" "} 
 					</RegText>
 					<RegText
 						style={{ color: "#39b2bd" }}
 						onPress={() => navigation.navigate("Main")}
 					>
-						termos de uso
+					{ i18n.t("signupTerms1") }
 					</RegText>
-					<RegText>, ter</RegText>
+					<RegText>{ i18n.t("signupTerms2") }</RegText>
 				</RegContainer>
 				<RegContainer>
-					<RegText>Leia o </RegText>
+					<RegText>{ i18n.t("signupTerms3") }</RegText>
 					<RegText
 						style={{ color: "#39b2bd" }}
 						onPress={() => navigation.navigate("Main")}
 					>
-						política de Privacidade
+						{ i18n.t("signupPrivacy") }
 					</RegText>
-					<RegText>, e tenho pelo menos 18 anos de idade.</RegText>
+					<RegText>{ i18n.t("signupAge") }</RegText>
 				</RegContainer>
 			</View>
 			<View style={{ alignItems: "center" }}>

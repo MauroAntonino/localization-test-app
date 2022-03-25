@@ -1,6 +1,15 @@
 import React, { useState } from "react";
 import { Linking, View, Text, TouchableOpacity } from "react-native";
 import styled from "styled-components";
+import * as Localization from 'expo-localization';
+import i18n from 'i18n-js';
+import { en, pt } from '../i18n/supportedLanguages';
+import { language } from '@env';
+
+i18n.fallbacks = true;
+i18n.translations = { en, pt };
+i18n.locale = language;
+// i18n.t
 
 const Chat = () => {
 	const [isTranslated, setTranslation] = useState(false);
@@ -9,7 +18,7 @@ const Chat = () => {
 		<Container>
 			<Scrollable>
 				<View style={{ alignItems: "center", padding: 15 }}>
-					<When>Agora mesmo</When>
+					<When>{ i18n.t("chatScroll") }</When>
 				</View>
 				<SentToYou>
 					<AvatarContainer>
@@ -17,16 +26,7 @@ const Chat = () => {
 					</AvatarContainer>
 					<MessageContainer>
 						<Message>
-							{`Bem-vindo ao App.
-
-Ajudamos você a vender as roupas que não usa mais.
-
-O melhor de tudo - não há taxas de venda no App. Você sempre consegue manter 100% do que você faz.
-
-Além disso, você pode comprar itens que não encontrará mais nas lojas e descobrir novos estilos interessantes.
-
-Saiba como o App funciona:
-`}
+							{ i18n.t("chatScrollMessage1") }
 							<Mint
 								onPress={() =>
 									Linking.openURL(
@@ -36,12 +36,9 @@ Saiba como o App funciona:
 							>
 								https://www.vinted.fr/how_it_works
 							</Mint>
-							{`
-
-
-E se você precisar de ajuda, basta acessar nossa Central de Ajuda. 
-Você também pode entrar em contato conosco a partir daí e prometemos entrar em contato com você dentro de 24 horas:
-`}
+							{'\n'}
+							{'\n'}
+							{ i18n.t("chatScrollMessage2") }
 							<Mint
 								onPress={() =>
 									Linking.openURL(
@@ -51,23 +48,24 @@ Você também pode entrar em contato conosco a partir daí e prometemos entrar e
 							>
 								https://www.vinted.fr/help
 							</Mint>
-							{`
-
-Se você não vestir - venda!
-
-Equipe do App`}
+							{'\n'}
+							{'\n'}
+							{ i18n.t("chatScrollMessage3") }
+							{'\n'}
+							{'\n'}
+							{ i18n.t("chatTeam") }
 						</Message>
 					</MessageContainer>
 				</SentToYou>
 				{isTranslated === false ? (
 					<TouchableOpacity onPress={() => setTranslation(true)}>
-						<Translate>Traduzir esta conversa</Translate>
+						<Translate>{ i18n.t("chatTranslation1") }</Translate>
 					</TouchableOpacity>
 				) : (
 					<TouchableOpacity onPress={() => setTranslation(false)}>
-						<Translate>Mostrar conversa não traduzida</Translate>
+						<Translate>{ i18n.t("chatTranslation2") }</Translate>
 						<View style={{ alignItems: "center", marginTop: -20 }}>
-							<When>Traduzido pelo Google</When>
+							<When>{ i18n.t("chatTranslationGoogle") }</When>
 						</View>
 					</TouchableOpacity>
 				)}
