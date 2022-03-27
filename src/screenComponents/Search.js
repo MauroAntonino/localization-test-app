@@ -6,6 +6,15 @@ import styled from "styled-components";
 import SearchHeader from "../components/SearchHeader";
 import Flyer from "../components/Flyer";
 
+import * as Localization from 'expo-localization';
+import i18n from 'i18n-js';
+import { en, pt } from '../i18n/supportedLanguages';
+import { language } from '@env';
+
+i18n.fallbacks = true;
+i18n.translations = { en, pt };
+i18n.locale = language;
+
 const renderTabBar = (props) => (
 	<TabBar
 		activeColor="black"
@@ -28,30 +37,30 @@ const renderTabBar = (props) => (
 
 const WomenRoute = () => (
 	<Scrollable style={{ flex: 1 }} showsVerticalScrollIndicator={false}>
-		<Flyer botLine text="All" icon={require("../images/Search/All.png")} />
+		<Flyer botLine text={i18n.t("searchAll")} icon={require("../images/Search/All.png")} />
 		<Flyer
 			botLine
-			text="Roupas"
+			text={i18n.t("searchWomenClothes")}
 			icon={require("../images/Search/Women/Clothes.png")}
 		/>
 		<Flyer
 			botLine
-			text="Sapatos"
+			text={i18n.t("searchWomenShoes")}
 			icon={require("../images/Search/Women/Shoes.png")}
 		/>
 		<Flyer
 			botLine
-			text="Bolsas"
+			text={i18n.t("searchWomenBags")}
 			icon={require("../images/Search/Women/Bags.png")}
 		/>
 		<Flyer
 			botLine
-			text="Acessórios"
+			text={i18n.t("searchWomenAccessories")}
 			icon={require("../images/Search/Women/Accessories.png")}
 		/>
 		<Flyer
 			botLine
-			text="beleza"
+			text={i18n.t("searchWomenBeauty")}
 			icon={require("../images/Search/Women/Beauty.png")}
 		/>
 	</Scrollable>
@@ -59,25 +68,25 @@ const WomenRoute = () => (
 
 const MenRoute = () => (
 	<Scrollable style={{ flex: 1 }} showsVerticalScrollIndicator={false}>
-		<Flyer botLine text="All" icon={require("../images/Search/All.png")} />
+		<Flyer botLine text={i18n.t("searchMenTodos")} icon={require("../images/Search/All.png")} />
 		<Flyer
 			botLine
-			text="Roupas"
+			text={i18n.t("searchMenClothes")}
 			icon={require("../images/Search/Men/Clothes.png")}
 		/>
 		<Flyer
 			botLine
-			text="Sapatos"
+			text={i18n.t("searchMenShoes")}
 			icon={require("../images/Search/Men/Shoes.png")}
 		/>
 		<Flyer
 			botLine
-			text="Acessórios"
+			text={i18n.t("searchMenAccessories")}
 			icon={require("../images/Search/Men/Accessories.png")}
 		/>
 		<Flyer
 			botLine
-			text="Grooming"
+			text={i18n.t("searchMenGrooming")}
 			icon={require("../images/Search/Men/Grooming.png")}
 		/>
 	</Scrollable>
@@ -85,55 +94,55 @@ const MenRoute = () => (
 
 const KidsRoute = () => (
 	<Scrollable style={{ flex: 1 }} showsVerticalScrollIndicator={false}>
-		<Flyer botLine text="All" icon={require("../images/Search/All.png")} />
+		<Flyer botLine text={i18n.t("searchKidsAll")} icon={require("../images/Search/All.png")} />
 		<Flyer
 			botLine
-			text="roupas de meninas"
+			text={i18n.t("searchKidsGirlsClothing")}
 			icon={require("../images/Search/Kids/Girls_Clothing.png")}
 		/>
 		<Flyer
 			botLine
-			text="roupas de meninos"
+			text={i18n.t("searchKidsBoysClothing")}
 			icon={require("../images/Search/Kids/Boys_Clothing.png")}
 		/>
 		<Flyer
 			botLine
-			text="Brinquedos e jogos"
+			text={i18n.t("searchKidsToysAndGames")}
 			icon={require("../images/Search/Kids/Toys_and_games.png")}
 		/>
 		<Flyer
 			botLine
-			text="Cuidados para bebê"
+			text={i18n.t("searchKidsBabyCare")}
 			icon={require("../images/Search/Kids/Baby_care.png")}
 		/>
 		<Flyer
 			botLine
-			text="Buggies"
+			text={i18n.t("searchKidsBuggies")}
 			icon={require("../images/Search/Kids/Buggies.png")}
 		/>
 		<Flyer
 			botLine
-			text="brinquedos para passear"
+			text={i18n.t("searchKidsRideOnToys")}
 			icon={require("../images/Search/Kids/Ride-on_toys.png")}
 		/>
 		<Flyer
 			botLine
-			text="Assentos e cadeiras de carro"
+			text={i18n.t("searchKidsCarSeatsAndChairs")}
 			icon={require("../images/Search/Kids/Car_seats_and_chairs.png")}
 		/>
 		<Flyer
 			botLine
-			text="Mobília infantil"
+			text={i18n.t("searchKidsKidsFurniture")}
 			icon={require("../images/Search/Kids/Kids_furniture.png")}
 		/>
 		<Flyer
 			botLine
-			text="Material escolar"
+			text={i18n.t("searchKidsSchoolSupplies")}
 			icon={require("../images/Search/Kids/School_supplies.png")}
 		/>
 		<Flyer
 			botLine
-			text="Outros itens infantis"
+			text={i18n.t("searchKidsOtherKidsItems")}
 			icon={require("../images/Search/Kids/Other_kids_items.png")}
 		/>
 	</Scrollable>
@@ -141,25 +150,25 @@ const KidsRoute = () => (
 
 const HomeRoute = () => (
 	<Scrollable style={{ flex: 1 }} showsVerticalScrollIndicator={false}>
-		<Flyer botLine text="Todos" icon={require("../images/Search/All.png")} />
+		<Flyer botLine text={i18n.t("searchHomeTodos")} icon={require("../images/Search/All.png")} />
 		<Flyer
 			botLine
-			text="Têxteis"
+			text={i18n.t("searchHomeTextiles")}
 			icon={require("../images/Search/Home/Textiles.png")}
 		/>
 		<Flyer
 			botLine
-			text="Acessórios para casa"
+			text={i18n.t("searchHomeHomeAccessories")}
 			icon={require("../images/Search/Home/Home_accessories.png")}
 		/>
 		<Flyer
 			botLine
-			text="Utensílios de mesa"
+			text={i18n.t("searchHomeTableware")}
 			icon={require("../images/Search/Home/Tableware.png")}
 		/>
 		<Flyer
 			botLine
-			text="Livros"
+			text={i18n.t("searchHomeBooks")}
 			icon={require("../images/Search/Home/Books.png")}
 		/>
 	</Scrollable>
@@ -177,10 +186,10 @@ const Search = ({}) => {
 
 	const [index, setIndex] = React.useState(0);
 	const [routes] = React.useState([
-		{ key: "women", title: "Women" },
-		{ key: "men", title: "Men" },
-		{ key: "kids", title: "Kids" },
-		{ key: "home", title: "Home" },
+		{ key: "women", title: i18n.t("searchWomenTitle") }, 
+		{ key: "men", title: i18n.t("searchMenTitle") },
+		{ key: "kids", title: i18n.t("searchKidsTitle") },
+		{ key: "home", title: i18n.t("searchHomeTitle") },
 	]);
 
 	return (

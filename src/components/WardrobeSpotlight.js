@@ -5,6 +5,15 @@ import styled from "styled-components";
 import MinItemCard from "../components/MinItemCard";
 import SeeAll from "../components/SeeAll";
 
+import * as Localization from 'expo-localization';
+import i18n from 'i18n-js';
+import { en, pt } from '../i18n/supportedLanguages';
+import { language } from '@env';
+
+i18n.fallbacks = true;
+i18n.translations = { en, pt };
+i18n.locale = language;
+
 const WardrobeSpotlight = ({ destination, text }) => {
 	const { navigate } = useNavigation();
 
@@ -12,7 +21,7 @@ const WardrobeSpotlight = ({ destination, text }) => {
 		<Container onPress={() => navigate(destination)}>
 			<GreySeparator />
 			<Header>
-				<HText>Destaque do guarda-roupa</HText>
+				<HText>{i18n.t("wardrobeSpotlightHeader")}</HText>
 			</Header>
 			<OPsProfile>
 				<OneThirdCol>
@@ -21,12 +30,12 @@ const WardrobeSpotlight = ({ destination, text }) => {
 					/>
 				</OneThirdCol>
 				<TwoThirdCol>
-					<OPsUsername>alexeasy1</OPsUsername>
+					<OPsUsername>{i18n.t("wardrobeSpotlightOPsUsername")}</OPsUsername>
 					<Stars source={require("../images/5_stars.png")} />
 				</TwoThirdCol>
 				<ThreeThirdCol>
 					<FollowButton>
-						<FollowText>Seguir</FollowText>
+						<FollowText>{i18n.t("wardrobeSpotlightFollowText")}</FollowText>
 					</FollowButton>
 				</ThreeThirdCol>
 			</OPsProfile>
@@ -61,13 +70,13 @@ const WardrobeSpotlight = ({ destination, text }) => {
 					image={require("../images/some_necklace.jpg")}
 					price="4.00"
 					favNum={14}
-					sizes="One size"
-					brand="Boutique indépendante"
+					sizes={i18n.t("wardrobeSpotlightsizes")}
+					brand="Boutique indépendante" 
 				/>
 				<SeeAll destination="Popular" items={104} />
 			</Items>
 			<Header>
-				<SeeMore>Ver mais</SeeMore>
+				<SeeMore>{i18n.t("wardrobeSpotlightSeeMore")}</SeeMore> 
 			</Header>
 			<GreySeparator />
 		</Container>

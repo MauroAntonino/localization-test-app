@@ -2,6 +2,15 @@ import React from "react";
 import { View } from "react-native";
 import styled from "styled-components";
 
+import * as Localization from 'expo-localization';
+import i18n from 'i18n-js';
+import { en, pt } from '../i18n/supportedLanguages';
+import { language } from '@env';
+
+i18n.fallbacks = true;
+i18n.translations = { en, pt };
+i18n.locale = language;
+
 const ProfileFlyer = ({ navigation, avatar, username }) => {
 	return (
 		<Container>
@@ -12,7 +21,7 @@ const ProfileFlyer = ({ navigation, avatar, username }) => {
 				{/* Sometimes it just doesn't load the border radius at all, idk why */}
 				<TextContainer>
 					<Text>{username}</Text>
-					<Text style={{ color: "#666666" }}>Ver meu perfil</Text>
+					<Text style={{ color: "#666666" }}>{i18n.t("pFText")}</Text> 
 				</TextContainer>
 			</LeftSide>
 			<RightSide>

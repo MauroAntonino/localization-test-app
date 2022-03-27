@@ -6,67 +6,78 @@ import MintButton from "../components/MintButton";
 import Flyer from "../components/Flyer";
 import { error_3 } from '@env';
 
+import * as Localization from 'expo-localization';
+import i18n from 'i18n-js';
+import { en, pt } from '../i18n/supportedLanguages';
+import { language } from '@env';
+
+i18n.fallbacks = true;
+i18n.translations = { en, pt };
+i18n.locale = language;
+
 const Sell = ({}) => {
 	return (
 		<Container>
 			<Scrollable>
 				<PhotoSection>
 					<PhotoTxtView>
-						<PhotoText>Adicione até 20 fotos. </PhotoText>
-						<PhotoText mint>Veja dicas de fotos.</PhotoText>
+						<PhotoText>{i18n.t("sellPhotoText1")}</PhotoText>
+						<PhotoText mint>{i18n.t("sellPhotoText2")}</PhotoText>
 					</PhotoTxtView>
 					<UploadView>
 						<UploadPhotos>
 							<UploadText plus>＋ </UploadText>
-							<UploadText>Upload fotos</UploadText>
+							<UploadText>{i18n.t("sellUploadText")}</UploadText>
 						</UploadPhotos>
 					</UploadView>
 				</PhotoSection>
 				<Separator />
 				<TitleSection>
-					<TitleDesc>Título</TitleDesc>
+					<TitleDesc>{i18n.t("sellTitleDesc1")}</TitleDesc>
 					<InputContainer>
 						<Input underlineColorAndroid="transparent" />
 					</InputContainer>
-					<TitleDesc example>por exemplo. White COS Jumper</TitleDesc>
+					<TitleDesc example>{i18n.t("sellTitleDesc2")}</TitleDesc>
 				</TitleSection>
 				<DescriptionSection>
-					<TitleDesc>Descreva seu item</TitleDesc>
+					<TitleDesc>{i18n.t("sellTitleDesc3")}</TitleDesc>
 					<InputContainer>
 						<Input underlineColorAndroid="transparent" />
 					</InputContainer>
 					<TitleDesc example>
-					{error_3}
+					{i18n.t("sellTitleDesc4")}
 					</TitleDesc>
 				</DescriptionSection>
 				<Separator />
-				<Flyer topLine={true} botLine={true} text="Categoria" />
-				<Flyer botLine={true} text="Marca" />
-				<Flyer botLine={true} text="Condição" />
+				<Flyer topLine={true} botLine={true} text={i18n.t("sellCategory")} />
+				<Flyer botLine={true} text={i18n.t("sellBrand")} />
+				<Flyer botLine={true} text={i18n.t("sellCondition")} />
 				<Separator />
-				<Flyer topLine={true} botLine={true} text="Preço" />
+				<Flyer topLine={true} botLine={true} text={i18n.t("sellPrice")} />
 				<Flyer
 					botLine={true}
-					text="tenho interesse em trocar"
+					text={i18n.t("sellInterest")}
 					checkbox
 				/>
 				<ButtonView>
 					<MintButton
-						text="Upload"
+						text={i18n.t("sellUpload")}
 						version="full"
 						destination="Home"
 					/>
 				</ButtonView>
 				<ArticleView>
 					<ArticleText>
-						A professional seller posing as a consumer or a
-						non-professional on
+					{i18n.t("sellArticleText1")}
+						{'\n'}
+					{i18n.t("sellArticleText2")}
 					</ArticleText>
 					<ArticleText>
-						Vinted incurs the penalties provided for in{" "}
-						<Mint>Article L. 132-2</Mint> of the
+						{i18n.t("sellArticleText3")}{" "}
+						{'\n'}
+						<Mint>{i18n.t("sellArticleText4")}</Mint>{i18n.t("sellArticleText5")}
 					</ArticleText>
-					<ArticleText>Consumer Code.</ArticleText>
+					<ArticleText>{i18n.t("sellArticleText6")}</ArticleText>
 				</ArticleView>
 			</Scrollable>
 		</Container>

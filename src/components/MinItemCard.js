@@ -3,6 +3,15 @@ import { useNavigation } from "@react-navigation/core";
 import { TouchableOpacity } from "react-native";
 import styled from "styled-components";
 
+import * as Localization from 'expo-localization';
+import i18n from 'i18n-js';
+import { en, pt } from '../i18n/supportedLanguages';
+import { language } from '@env';
+
+i18n.fallbacks = true;
+i18n.translations = { en, pt };
+i18n.locale = language;
+
 const MinItemCard = ({ destination, image, price, favNum, sizes, brand }) => {
 	const [favorite, setFavorite] = useState(false);
 	const [favCount, setFavCount] = useState(favNum);
@@ -24,7 +33,7 @@ const MinItemCard = ({ destination, image, price, favNum, sizes, brand }) => {
 			<InfoContainer>
 				<TopContainer>
 					<LeftSubContainer>
-						<PriceText>{"€" + price}</PriceText>
+						<PriceText>{i18n.t("Price") + price}</PriceText>
 					</LeftSubContainer>
 					<RightSubContainer>
 						{favorite === false ? (

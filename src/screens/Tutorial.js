@@ -4,6 +4,15 @@ import { TabView, SceneMap } from "react-native-tab-view";
 import MintButton from "../components/MintButton";
 import styled from "styled-components";
 
+import * as Localization from 'expo-localization';
+import i18n from 'i18n-js';
+import { en, pt } from '../i18n/supportedLanguages';
+import { language } from '@env';
+
+i18n.fallbacks = true;
+i18n.translations = { en, pt };
+i18n.locale = language;
+
 import { Dimensions } from "react-native";
 const win = Dimensions.get("window");
 const ratio = win.width / 1080;
@@ -16,12 +25,13 @@ const FirstRoute = () => (
 			style={{ width: win.width, height: 720 * ratio }}
 		/>
 		<TextContainer>
-			<Title>Ganhe dinheiro vendendo roupas</Title>
+			<Title>{i18n.t("tutorialTitleFirstRoute")}</Title>
 		</TextContainer>
 		<TextContainer>
 			<Description>
-			Não veste? Venda no App! Liste as roupas que você não
-			precisa e vendê-as pelo seu preço.
+			{i18n.t("tutorialDescription1")}
+			{'\n'}
+			{i18n.t("tutorialDescription2")}
 			</Description>
 		</TextContainer>
 	</Page>
@@ -33,13 +43,13 @@ const SecondRoute = () => (
 			style={{ width: win.width, height: 720 * ratio }}
 		/>
 		<TextContainer>
-			<Title>Mantenha 100% de seus ganhos</Title>
+			<Title>{i18n.t("tutorialTitleSecondRoute")}</Title> 
 		</TextContainer>
 		<TextContainer>
 			<Description>
-			A venda é totalmente gratuita, portanto, você sempre manterá tudo o que ganhar.
-			Organize seu guarda-roupa e ganhe um dinheiro extra com
-			o App.
+			{i18n.t("tutorialDescriptionSecondRoute1")}
+			{'\n'}
+			{i18n.t("tutorialDescriptionSecondRoute2")}
 
 			</Description>
 		</TextContainer>
@@ -52,12 +62,13 @@ const ThirdRoute = () => (
 			style={{ width: win.width, height: 720 * ratio }}
 		/>
 		<TextContainer>
-			<Title>É simples e seguro</Title>
+			<Title>{i18n.t("tutorialTitleThirdRoute")}</Title>
 		</TextContainer>
 		<TextContainer>
 			<Description>
-			Liste em apenas 3 minutos: basta clicar, fazer upload e vender. 
-			45 milhões de pessoas usam o App globalmente e nossa equipe de suporte está sempre pronta para ajudar.
+			{i18n.t("tutorialDescriptionThirdRoute1")}
+			{'\n'}
+			{i18n.t("tutorialDescriptionThirdRoute2")}
 			</Description>
 		</TextContainer>
 	</Page>

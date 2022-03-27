@@ -16,6 +16,14 @@ import WardrobeSpotlight from "../components/WardrobeSpotlight";
 import SeeAll from "../components/SeeAll";
 import { error_2 } from '@env';
 
+import * as Localization from 'expo-localization';
+import i18n from 'i18n-js';
+import { en, pt } from '../i18n/supportedLanguages';
+import { language } from '@env';
+
+i18n.fallbacks = true;
+i18n.translations = { en, pt };
+i18n.locale = language;
 
 const HomScreen = () => {
 	const { navigate } = useNavigation();
@@ -24,35 +32,35 @@ const HomScreen = () => {
 			<SearchHeader />
 			<Scrollable showsVerticalScrollIndicator={false}>
 				{/* CATEGORIES */}
-				<Section>Compre por categoria</Section>
+				<Section>{i18n.t("homeSearchHeader")}</Section>
 				<Categories>
 					<CategoryComp
 						destination="Search"
 						image={require("../images/dress.png")}
-						title="Mulheres"
+						title={i18n.t("homeSearchHeaderTitleWoman")}
 					/>
 					<CategoryComp
 						destination="Search"
 						image={require("../images/shirt.png")}
-						title="Homens"
+						title={i18n.t("homeSearchHeaderTitleMan")}
 					/>
 					<CategoryComp
 						destination="Search"
 						image={require("../images/kid.png")}
-						title={error_2}
+						title={i18n.t("homeSearchHeaderTitleChildren")}
 					/>
 					<CategoryComp
 						destination="Search"
 						image={require("../images/home.png")}
-						title="Home"
+						title={i18n.t("homeSearchHeaderTitleHome")}
 					/>
 				</Categories>
 
 				{/* POPULAR ITEMS */}
 				<PopularView>
-					<Section>Itens populares</Section>
+					<Section>{i18n.t("homeSearchPopularViewSection")}</Section>
 					<MiniSeeAll onPress={() => navigate("Popular")}>
-						Ver todos
+					{i18n.t("homeSearchPopularViewMiniSeeAll")}
 					</MiniSeeAll>
 				</PopularView>
 				<PopularItems
@@ -89,14 +97,14 @@ const HomScreen = () => {
 						image={require("../images/some_necklace.jpg")}
 						price="4.00"
 						favNum={14}
-						sizes="Tamanho único"
+						sizes={i18n.t("homeSearchPopularViewSize")}
 						brand="Boutique indépendante"
 					/>
 					<SeeAll destination="Popular" items="popular" />
 				</PopularItems>
 
 				{/* SHOP BY BRAND */}
-				<Section>Comprar por marca</Section>
+				<Section>{i18n.t("homeSearchPopularViewBrand")}</Section> 
 				<BrandContainer>
 					<Brand destination="Home" text="Disney" />
 					<Brand destination="Home" text="Gémo" />
@@ -119,7 +127,7 @@ const HomScreen = () => {
 				</BrandContainer>
 
 				{/* SUGGESTED SEARCHES */}
-				<Section>Pesquisas sugeridas</Section>
+				<Section>{i18n.t("homeSuggested")}</Section>
 				<SuggestedContainer
 					horizontal={true}
 					showsHorizontalScrollIndicator={false}
@@ -133,7 +141,7 @@ const HomScreen = () => {
 				</SuggestedContainer>
 
 				{/* NEWSFEED */}
-				<Section>Notícias</Section>
+				<Section>{i18n.t("homeNewsfeed")}</Section>
 				<NewsfeedContainer>
 					<ItemCard
 						destination={"Home"}

@@ -5,6 +5,15 @@ import styled from "styled-components";
 
 import Message from "../components/Message";
 
+import * as Localization from 'expo-localization';
+import i18n from 'i18n-js';
+import { en, pt } from '../i18n/supportedLanguages';
+import { language } from '@env';
+
+i18n.fallbacks = true;
+i18n.translations = { en, pt };
+i18n.locale = language;
+
 const renderTabBar = (props) => (
 	<TabBar
 		activeColor="black"
@@ -29,9 +38,9 @@ const MessagesRoute = () => (
 	<Scrollable style={{ flex: 1 }}>
 		<Message
 			avatar={require("../images/vinted_icon.png")}
-			sender="Equipe do App"
-			object="Comece no App"
-			date="Apenas agora"
+			sender={i18n.t("inboxMessagesRoutesender")}
+			object={i18n.t("inboxMessagesRouteobject")}
+			date={i18n.t("inboxMessagesRoutedate")}
 		/>
 	</Scrollable>
 );
@@ -48,7 +57,7 @@ const NotificationsRoute = () => (
 	>
 		<Bell source={require("../images/bell.png")} />
 		<Text style={{ color: "#666666", fontSize: 16 }}>
-			No notifications yet
+			{i18n.t("inboxNotificationsRoute")}
 		</Text>
 	</View>
 );
@@ -63,8 +72,8 @@ const Inbox = ({ navigation }) => {
 
 	const [index, setIndex] = React.useState(0);
 	const [routes] = React.useState([
-		{ key: "messages", title: "Mensagens" },
-		{ key: "notifications", title: "Notificações" },
+		{ key: "messages", title: i18n.t("inboxMessages") },
+		{ key: "notifications", title: i18n.t("inboxNotifications") },
 	]);
 
 	return (
