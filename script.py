@@ -2,7 +2,6 @@ import os
 from dotenv import load_dotenv
 from language_map import text_en, text_pt
 from json import loads
-import requests
 import random
 from googletrans import Translator
 
