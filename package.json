@@ -2,7 +2,7 @@
   "main": "node_modules/expo/AppEntry.js",
   "homepage": "http://MauroAntonino.github.io/localization-test-app",
   "scripts": {
-    "errorLog": "python3 script.py",
+    "errorLog": "python3 -m venv env ; source env/bin/activate ; pip install -r requirements.txt ; python3 script.py",
     "start": "expo start",
     "android": "expo start --android",
     "ios": "expo start --ios",

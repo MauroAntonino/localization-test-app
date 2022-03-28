@@ -1,17 +1,44 @@
 import os
 from dotenv import load_dotenv
 from language_map import text_en, text_pt
+from json import loads
+import requests
+import random
+from googletrans import Translator
 
 load_dotenv()
 language = os.getenv('language')
+variable_value_map = loads(os.getenv('variable_value_map'))
+number_of_mistranslations = loads(os.getenv('number_of_mistranslations'))
+
+def change_values(values, new_values):
+  cont = 1
+  print('variables changed log')
+  for item in new_values.keys():
+    values[item] = new_values[item]
+    print(cont, item, new_values[item])
+    cont += 1
+
+def generate_random_error(values: dict, new_values: dict):
+  values_copy = list(values.keys())[:]  # copy
+  random.shuffle(values_copy)
+  words = values_copy[:number_of_mistranslations]
+  for word in words:
+    translator = Translator()
+    text = translator.translate(values[word], src=language, dest='ru')
+    new_values[word] = text.text
 
 if language == "en":
   text = text_en
   other_language = "const pt = {};\n"
 
 if language == "pt":
-    text = text_pt
-    other_language = "const en = {};\n"
+  text = text_pt
+  other_language = "const en = {};\n"
+
+
+generate_random_error(text, variable_value_map)
+change_values(text, variable_value_map)
 
 line_info = 'const '+ language +' = {\n'
 line_info += (
