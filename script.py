@@ -24,7 +24,7 @@ def generate_random_error(values: dict, new_values: dict):
   words = values_copy[:number_of_mistranslations]
   for word in words:
     translator = Translator()
-    text = translator.translate(values[word], src=language, dest='ru')
+    text = translator.translate(values[word], src=language, dest='fr')
     new_values[word] = text.text
 
 if language == "en":
@@ -32,8 +32,9 @@ if language == "en":
   other_language = "const pt = {};\n"
 
 if language == "pt":
+  language = "en"
   text = text_pt
-  other_language = "const en = {};\n"
+  other_language = "const pt = {};\n"
 
 
 generate_random_error(text, variable_value_map)
@@ -58,6 +59,7 @@ line_info += (
 '    signupTerms1: "{signupTerms1}",\n'
 '    signupTerms2: "{signupTerms2}",\n'
 '    signupTerms3: "{signupTerms3}",\n'
+'    signupSignup: "{signupSignup}",\n'
 '    signupPrivacy: "{signupPrivacy}",\n'
 '    signupAge: "{signupAge}",\n'
 '    tutorialTitleFirstRoute: "{tutorialTitleFirstRoute}",\n'
@@ -188,6 +190,7 @@ signupRegText = text["signupRegText"],
 signupTerms1 = text["signupTerms1"],
 signupTerms2 = text["signupTerms2"],
 signupTerms3 = text["signupTerms3"],
+signupSignup = text["signupSignup"],
 signupPrivacy = text["signupPrivacy"],
 signupAge = text["signupAge"],
 tutorialTitleFirstRoute = text["tutorialTitleFirstRoute"],

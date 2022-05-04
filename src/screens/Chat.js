@@ -9,7 +9,6 @@ import { language } from '@env';
 i18n.fallbacks = true;
 i18n.translations = { en, pt };
 i18n.locale = language;
-// i18n.t
 
 const Chat = () => {
 	const [isTranslated, setTranslation] = useState(false);

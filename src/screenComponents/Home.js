@@ -14,7 +14,6 @@ import Suggested from "../components/Suggested";
 import WardrobeSpotlight from "../components/WardrobeSpotlight";
 
 import SeeAll from "../components/SeeAll";
-import { error_2 } from '@env';
 
 import * as Localization from 'expo-localization';
 import i18n from 'i18n-js';

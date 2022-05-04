@@ -30,7 +30,7 @@ const FirstRoute = () => (
 		<TextContainer>
 			<Description>
 			{i18n.t("tutorialDescription1")}
-			{'\n'}
+			{ " " }
 			{i18n.t("tutorialDescription2")}
 			</Description>
 		</TextContainer>
@@ -48,7 +48,6 @@ const SecondRoute = () => (
 		<TextContainer>
 			<Description>
 			{i18n.t("tutorialDescriptionSecondRoute1")}
-			{'\n'}
 			{i18n.t("tutorialDescriptionSecondRoute2")}
 
 			</Description>
@@ -67,7 +66,6 @@ const ThirdRoute = () => (
 		<TextContainer>
 			<Description>
 			{i18n.t("tutorialDescriptionThirdRoute1")}
-			{'\n'}
 			{i18n.t("tutorialDescriptionThirdRoute2")}
 			</Description>
 		</TextContainer>

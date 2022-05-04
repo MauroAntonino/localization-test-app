@@ -45,7 +45,7 @@ const SignUp = ({ navigation }) => {
 				<MintButton
 					navigation={navigation}
 					destination={"Tutorial"}
-					text="Inscrever-se"
+					text={ i18n.t("signupSignup") }
 					version="full"
 				/>
 			</View>

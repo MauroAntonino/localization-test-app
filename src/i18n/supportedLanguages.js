@@ -1,11 +1,11 @@
-const pt = {
-    introHeader: "crazy",
+const en = {
+    introHeader: "Olá",
     introSignUpBtn: "Inscreva-se no App",
     introLogInBtn: "eu já tenho uma conta",
     introAboutApp: "Sobre o App: ",
     introAboutAppText: "Nossa plataforma",
     chatScroll: "Agora mesmo",
-    chatTeam: "Equipe do App",
+    chatTeam: "L'équipe de l'application",
     chatTranslation1: "Traduzir esta conversa",
     chatTranslation2: "Mostrar conversa não traduzida",
     chatTranslationGoogle: "Traduzido pelo Google",
@@ -16,6 +16,7 @@ const pt = {
     signupTerms1: "termos de uso",
     signupTerms2: ", ter",
     signupTerms3: "Leia o ",
+    signupSignup: "Inscrever-se",
     signupPrivacy: "política de Privacidade",
     signupAge: ", e tenho pelo menos 18 anos de idade.",
     tutorialTitleFirstRoute: "Ganhe dinheiro vendendo roupas",
@@ -80,16 +81,16 @@ const pt = {
     ProfileTermsText4: "Condições de venda pro",
     searchAll: "Todos",
     searchWomenClothes: "Roupas",
-    searchWomenShoes: "обувь",
+    searchWomenShoes: "Sapatos",
     searchWomenBags: "Bolsas",
     searchWomenAccessories: "Acessórios",
     searchWomenBeauty: "Beleza",
     searchMenTodos: "Todos",
     searchMenClothes: "Roupas",
-    searchMenShoes: "обувь",
+    searchMenShoes: "Sapatos",
     searchMenAccessories: "Acessórios",
     searchMenGrooming: "Grooming",
-    searchKidsAll: "Todos",
+    searchKidsAll: "À faire",
     searchKidsGirlsClothing: "Roupas de meninas",
     searchKidsBoysClothing: "Roupas de meninos",
     searchKidsToysAndGames: "Brinquedos e jogos",
@@ -107,7 +108,7 @@ const pt = {
     searchHomeBooks: "Livros",
     searchHomeTitle: "Women",
     searchKidsTitle: "Men",
-    searchMenTitle: "Дети",
+    searchMenTitle: "Kids",
     searchWomenTitle: "Home",
     sellPhotoText1: "Adicione até 20 fotos. ",
     sellPhotoText2: "Veja dicas de fotos.",
@@ -129,5 +130,5 @@ const pt = {
     sellArticleText5: " of the",
     sellArticleText6: "Consumer Code.",
 };
-const en = {};
+const pt = {};
 export { en, pt };
